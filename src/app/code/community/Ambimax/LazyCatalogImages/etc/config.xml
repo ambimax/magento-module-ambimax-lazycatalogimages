@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <Ambimax_LazyCatalogImages>
+            <version>1.0.0</version>
+        </Ambimax_LazyCatalogImages>
+    </modules>
+    <global>
+        <models>
+            <ambimax_lazycatalogimages>
+                <class>Ambimax_LazyCatalogImages_Model</class>
+                <!--<resourceModel>ambimax_sourceprovider_resource</resourceModel>-->
+            </ambimax_lazycatalogimages>
+            <!--<ambimax_sourceprovider_resource>
+                <class>Ambimax_SourceProvider_Model_Resource</class>
+                <entities>
+                    <source>
+                        <table>ambimax_sourceprovider</table>
+                    </source>
+                </entities>
+            </ambimax_sourceprovider_resource>-->
+            <fastsimpleimport>
+                <rewrite>
+                    <import_entity_product>Ambimax_LazyCatalogImages_Model_Import_Entity_Product</import_entity_product>
+                </rewrite>
+            </fastsimpleimport>
+        </models>
+        <!--<resources>
+            <ambimax_sourceprovider_setup>
+                <setup>
+                    <module>Ambimax_SourceProvider</module>
+                </setup>
+            </ambimax_sourceprovider_setup>
+        </resources>-->
+        <helpers>
+            <ambimax_lazycatalogimages>
+                <class>Ambimax_LazyCatalogImages_Helper</class>
+            </ambimax_lazycatalogimages>
+            <catalog>
+                <rewrite>
+                    <image>Ambimax_LazyCatalogImages_Helper_Catalog_Image</image>
+                </rewrite>
+            </catalog>
+        </helpers>
+    </global>
+
+    <default>
+        <web>
+            <lazycatalogimages>
+                <enabled>0</enabled>
+                <use_square_images>1</use_square_images>
+                <base_url></base_url>
+            </lazycatalogimages>
+        </web>
+    </default>
+</config>

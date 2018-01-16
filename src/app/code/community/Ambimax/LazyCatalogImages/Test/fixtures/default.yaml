@@ -1,0 +1,35 @@
+---
+registry:
+  helper:
+    - ambimax_lazycatalogimages/catalog_image
+  singleton:
+    - eav/config
+
+config:
+  default/web/lazycatalogimages/enabled: 1
+  default/web/lazycatalogimages/use_square_images: 0
+  default/web/lazycatalogimages/base_url: https://xxx.cdn-server.com/
+
+eav:
+  catalog_product:
+    - entity_id: 1
+      attribute_set_id: 4
+      name: T-Shirt Strong Red XS
+      sku: tshirt-strong-red-xs
+      status: 1
+      type_id: simple
+      small_image: /TShirts/Strong-Red-XS.jpg
+      stock:
+        qty: 338
+        is_in_stock: 1
+
+    - entity_id: 2
+      attribute_set_id: 4
+      name: T-Shirt Strong Red S
+      sku: tshirt-strong-red-s
+      status: 1
+      type_id: simple
+      small_image: /TShirts/Strong-Red-S.jpg
+      stock:
+        qty: 338
+        is_in_stock: 1

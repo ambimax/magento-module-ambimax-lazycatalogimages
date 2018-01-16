@@ -1,0 +1,15 @@
+---
+config:
+  base_url: https://xxx.cdn-server.com/
+
+image_urls:
+  tshirt-strong-red-xs-600-600: https://xxx.cdn-server.com/600x600/TShirts/Strong-Red-XS.jpg
+  tshirt-strong-red-xs-600-0: https://xxx.cdn-server.com/600x/TShirts/Strong-Red-XS.jpg
+  tshirt-strong-red-xs-0-600: https://xxx.cdn-server.com/x600/TShirts/Strong-Red-XS.jpg
+  tshirt-strong-red-xs-150-6000: https://xxx.cdn-server.com/150x6000/TShirts/Strong-Red-XS.jpg
+  tshirt-strong-red-xs-0-0: https://xxx.cdn-server.com/TShirts/Strong-Red-XS.jpg
+  tshirt-strong-red-xs-19260-78993: https://xxx.cdn-server.com/19260x78993/TShirts/Strong-Red-XS.jpg
+
+square_image_urls:
+  tshirt-strong-red-xs-600: https://xxx.cdn-server.com/600x600/TShirts/Strong-Red-XS.jpg
+  tshirt-strong-red-xs-0: https://xxx.cdn-server.com/TShirts/Strong-Red-XS.jpg
