@@ -38,14 +38,24 @@ class Ambimax_LazyCatalogImages_Test_Helper_Catalog_ImageTest extends EcomDev_PH
     }
 
     /**
+     * @param null $width
+     * @param null $height
+     * @param string $sku
+     *
      * @loadFixture ~Ambimax_LazyCatalogImages/default
+     * @dataProvider dataProvider
      * @loadExpectation ~Ambimax_LazyCatalogImages/default
      */
-    public function testRemoteBaseUrl()
+    public function testGetImageUrlWithWidthAndHeight($width = null, $height = null, $sku = 'tshirt-strong-red-xs')
     {
+        $image = $this->getInitializedImage($sku);
+
+        $image->resize($width, $height);
+
         $this->assertSame(
-            $this->expected('config')->getBaseUrl(),
-            $this->_imageHelper->getRemoteBaseUrl()
+            $this->expected('image_urls')->getData(sprintf('%s-%d-%d', $sku, $width, $height)),
+            $image->__toString(),
+            sprintf(sprintf('Expected %s-%d-%d url is not identical', $sku, $width, $height))
         );
     }
 
@@ -58,7 +68,7 @@ class Ambimax_LazyCatalogImages_Test_Helper_Catalog_ImageTest extends EcomDev_PH
      * @dataProvider dataProvider
      * @loadExpectation ~Ambimax_LazyCatalogImages/default
      */
-    public function testGetImageUrlWithWidthAndHeight($width = null, $height = null, $sku = 'tshirt-strong-red-xs')
+    public function testGetPlaceholderUrls($width = null, $height = null, $sku = 'orange-juice-bottle')
     {
         $image = $this->getInitializedImage($sku);
 

@@ -24,6 +24,11 @@
                     <import_entity_product>Ambimax_LazyCatalogImages_Model_Import_Entity_Product</import_entity_product>
                 </rewrite>
             </fastsimpleimport>
+            <catalog>
+                <rewrite>
+                    <product_media_config>Ambimax_LazyCatalogImages_Model_Rewrite_Product_Media_Config</product_media_config>
+                </rewrite>
+            </catalog>
         </models>
         <!--<resources>
             <ambimax_sourceprovider_setup>
@@ -41,6 +46,11 @@
                     <image>Ambimax_LazyCatalogImages_Helper_Catalog_Image</image>
                 </rewrite>
             </catalog>
+            <enhancedgrid>
+                <rewrite>
+                    <data>Ambimax_LazyCatalogImages_Helper_Rewrite_Enhancedgrid</data>
+                </rewrite>
+            </enhancedgrid>
         </helpers>
     </global>
 

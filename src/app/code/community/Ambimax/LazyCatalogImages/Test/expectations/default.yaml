@@ -3,13 +3,18 @@ config:
   base_url: https://xxx.cdn-server.com/
 
 image_urls:
-  tshirt-strong-red-xs-600-600: https://xxx.cdn-server.com/600x600/TShirts/Strong-Red-XS.jpg
-  tshirt-strong-red-xs-600-0: https://xxx.cdn-server.com/600x/TShirts/Strong-Red-XS.jpg
-  tshirt-strong-red-xs-0-600: https://xxx.cdn-server.com/x600/TShirts/Strong-Red-XS.jpg
-  tshirt-strong-red-xs-150-6000: https://xxx.cdn-server.com/150x6000/TShirts/Strong-Red-XS.jpg
-  tshirt-strong-red-xs-0-0: https://xxx.cdn-server.com/TShirts/Strong-Red-XS.jpg
-  tshirt-strong-red-xs-19260-78993: https://xxx.cdn-server.com/19260x78993/TShirts/Strong-Red-XS.jpg
+  tshirt-strong-red-xs-600-600: https://xxx.cdn-server.com/Strong-Red-XS/600x600/TShirts/T-Shirt-Strong-Red-XS.jpg
+  tshirt-strong-red-xs-600-0: https://xxx.cdn-server.com/Strong-Red-XS/600x/TShirts/T-Shirt-Strong-Red-XS.jpg
+  tshirt-strong-red-xs-0-600: https://xxx.cdn-server.com/Strong-Red-XS/x600/TShirts/T-Shirt-Strong-Red-XS.jpg
+  tshirt-strong-red-xs-150-6000: https://xxx.cdn-server.com/Strong-Red-XS/150x6000/TShirts/T-Shirt-Strong-Red-XS.jpg
+  tshirt-strong-red-xs-0-0: https://xxx.cdn-server.com/Strong-Red-XS/TShirts/T-Shirt-Strong-Red-XS.jpg
+  tshirt-strong-red-xs-19260-78993: https://xxx.cdn-server.com/Strong-Red-XS/19260x78993/TShirts/T-Shirt-Strong-Red-XS.jpg
+  tshirt-strong-red-xxl-200-200: https://xxx.cdn-server.com/Strong-Red-XS/19260x78993/TShirts/T-Shirt-Strong-Red-XS.jpg
+  orange-juice-bottle-600-600: https://xxx.cdn-server.com/placeholder/600x600/default.jpg
+  orange-juice-bottle-600-0: https://xxx.cdn-server.com/placeholder/600x/default.jpg
+  orange-juice-bottle-0-600: https://xxx.cdn-server.com/placeholder/x600/default.jpg
+  orange-juice-bottle-0-0: https://xxx.cdn-server.com/placeholder/default.jpg
 
 square_image_urls:
-  tshirt-strong-red-xs-600: https://xxx.cdn-server.com/600x600/TShirts/Strong-Red-XS.jpg
-  tshirt-strong-red-xs-0: https://xxx.cdn-server.com/TShirts/Strong-Red-XS.jpg
+  tshirt-strong-red-xs-600: https://xxx.cdn-server.com/Strong-Red-XS/600x600/TShirts/T-Shirt-Strong-Red-XS.jpg
+  tshirt-strong-red-xs-0: https://xxx.cdn-server.com/Strong-Red-XS/TShirts/T-Shirt-Strong-Red-XS.jpg

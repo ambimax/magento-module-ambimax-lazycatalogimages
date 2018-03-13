@@ -17,6 +17,21 @@ For installation use composer, modman or copy files manually.
 }
 ```
 
+### Image format
+
+Image urls will be replaced with the following scheme:
+
+```
+/path/to/imagename.extension => /imagename/path/to/product-name.extension
+```
+
+Full CDN Url will therefore look like this:
+```
+/path/to/imagename.extension => https://cdn.com/imagename/path/to/product-name.extension
+```
+
+This format is used to ease invalidation of images. 
+A lambda function must be used to serve the right image using Lambda@Edge.
 
 ## License
 

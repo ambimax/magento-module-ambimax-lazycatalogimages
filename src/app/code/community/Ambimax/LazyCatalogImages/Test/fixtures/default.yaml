@@ -33,3 +33,14 @@ eav:
       stock:
         qty: 338
         is_in_stock: 1
+
+    - entity_id: 3
+      attribute_set_id: 4
+      name: Orange Juice, 1 Gallon Bottle
+      sku: orange-juice-bottle
+      status: 1
+      type_id: simple
+      small_image:
+      stock:
+        qty: 338
+        is_in_stock: 1

@@ -22,15 +22,7 @@ class Ambimax_LazyCatalogImages_Helper_Catalog_Image extends Mage_Catalog_Helper
      */
     public function isEnabled()
     {
-        return Mage::getStoreConfigFlag('web/lazycatalogimages/enabled');
-    }
-
-    /**
-     * @return string
-     */
-    public function getRemoteBaseUrl()
-    {
-        return Mage::getStoreConfig('web/lazycatalogimages/base_url');
+        return $this->getUrlHelper()->isEnabled();
     }
 
     /**
@@ -59,6 +51,7 @@ class Ambimax_LazyCatalogImages_Helper_Catalog_Image extends Mage_Catalog_Helper
         // set dummy model
         $this->_setModel(new Varien_Object());
 
+        $this->setProduct($product);
         $this->setImagePath($product->getData($attributeName));
 
         return $this;
@@ -94,18 +87,17 @@ class Ambimax_LazyCatalogImages_Helper_Catalog_Image extends Mage_Catalog_Helper
             return parent::__toString();
         }
 
-        $url = $this->getRemoteBaseUrl();
-
-        // add dimensions
-        if ( $this->getWidth() || $this->getHeight() ) {
-            $url .= sprintf('%sx%s/', $this->getWidth(), $this->getHeight());
+        if ( $this->getProduct() instanceof Mage_Catalog_Model_Product ) {
+            $this->getUrlHelper()->setProduct($this->getProduct());
         }
 
-        if ( $this->getImagePath() ) {
-            return $url . $this->getImagePath();
-        }
-
-        return $url . $this->getPlaceholder();
+        return $this->getUrlHelper()->getImageUrl(
+            $this->getImagePath(),
+            [
+                'width'  => $this->getWidth(),
+                'height' => $this->getHeight(),
+            ]
+        );
     }
 
     /**
@@ -166,6 +158,14 @@ class Ambimax_LazyCatalogImages_Helper_Catalog_Image extends Mage_Catalog_Helper
         }
 
         return $this;
+    }
+
+    /**
+     * @return Ambimax_LazyCatalogImages_Helper_Data|Mage_Core_Helper_Abstract
+     */
+    public function getUrlHelper()
+    {
+        return Mage::helper('ambimax_lazycatalogimages');
     }
 
     /**
