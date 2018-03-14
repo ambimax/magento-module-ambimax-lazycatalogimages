@@ -1,0 +1,17 @@
+{
+  "name": "ambimax/magento-module-ambimax-lazycatalogimages",
+  "type": "magento-module",
+  "description": "Generates CDN urls for lazy loading product images",
+  "homepage": "https://www.ambimax.de",
+  "license": ["MIT"],
+  "require": {
+    "php": ">=5.6",
+    "magento-hackathon/magento-composer-installer": "3.*"
+  },
+  "authors": [
+    {
+      "name": "Tobias Schifftner",
+      "email": "ts@ambimax.de"
+    }
+  ]
+}
