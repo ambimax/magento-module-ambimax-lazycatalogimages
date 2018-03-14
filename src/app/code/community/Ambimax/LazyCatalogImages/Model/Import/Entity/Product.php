@@ -25,10 +25,9 @@ class Ambimax_LazyCatalogImages_Model_Import_Entity_Product extends AvS_FastSimp
     /**
      * @return bool
      */
-    public function mediaUploadPreventionIsEnabled(): bool
+    public function mediaUploadPreventionIsEnabled()
     {
-        return Mage::getStoreConfigFlag('web/lazycatalogimages/prevent_media_upload')
-            && Mage::getStoreConfigFlag('web/lazycatalogimages/enabled');
+        return Mage::getStoreConfigFlag('web/lazycatalogimages/prevent_media_upload');
     }
 
 }
