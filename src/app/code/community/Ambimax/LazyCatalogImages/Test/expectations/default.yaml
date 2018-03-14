@@ -18,3 +18,11 @@ image_urls:
 square_image_urls:
   tshirt-strong-red-xs-600: https://xxx.cdn-server.com/Strong-Red-XS/600x600/TShirts/T-Shirt-Strong-Red-XS.jpg
   tshirt-strong-red-xs-0: https://xxx.cdn-server.com/Strong-Red-XS/TShirts/T-Shirt-Strong-Red-XS.jpg
+
+srcset:
+  dimensions:
+    - '210'
+    - '420'
+    - '840'
+  html: '<img src="https://xxx.cdn-server.com/Strong-Red-XS/210x/TShirts/T-Shirt-Strong-Red-XS.jpg" srcset="https://xxx.cdn-server.com/Strong-Red-XS/210x/TShirts/T-Shirt-Strong-Red-XS.jpg 210w, https://xxx.cdn-server.com/Strong-Red-XS/420x/TShirts/T-Shirt-Strong-Red-XS.jpg 420w, https://xxx.cdn-server.com/Strong-Red-XS/840x/TShirts/T-Shirt-Strong-Red-XS.jpg 840w" />'
+  html_with_tags: '<img alt="Alternative Text" src="https://xxx.cdn-server.com/Strong-Red-XS/210x/TShirts/T-Shirt-Strong-Red-XS.jpg" srcset="https://xxx.cdn-server.com/Strong-Red-XS/210x/TShirts/T-Shirt-Strong-Red-XS.jpg 210w, https://xxx.cdn-server.com/Strong-Red-XS/420x/TShirts/T-Shirt-Strong-Red-XS.jpg 420w, https://xxx.cdn-server.com/Strong-Red-XS/840x/TShirts/T-Shirt-Strong-Red-XS.jpg 840w" />'

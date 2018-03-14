@@ -133,4 +133,53 @@ class Ambimax_LazyCatalogImages_Helper_Data extends Mage_Core_Helper_Abstract
         return $size > 0 ? (int)$size : null;
     }
 
+    /**
+     * @param Mage_Catalog_Model_Product $product
+     * @param array $dimensions
+     * @param array $tagAttributes
+     * @param string $attributeCode
+     * @return string
+     * @throws Exception
+     */
+    public function getSrcSet(Mage_Catalog_Model_Product $product, array $dimensions, array $tagAttributes = [],
+                              $attributeCode = 'small_image')
+    {
+        /** @var Mage_Catalog_Helper_Image $catalogHelper */
+        $catalogHelper = Mage::helper('catalog/image');
+
+        sort($dimensions, SORT_NATURAL | SORT_FLAG_CASE);
+
+        foreach ($dimensions as $width) {
+
+            if ( (int) $width <= 10 ) {
+                throw new Exception('Invalid srcset dimensions specified');
+            }
+
+            $url = $catalogHelper->init($product, $attributeCode)->resize($width)->__toString();
+
+            if ( !isset($tagAttributes['src']) ) {
+                $tagAttributes['src'] = $url;
+            }
+
+            $tagAttributes['srcset'][] = sprintf('%s %dw', $url, $width);
+        }
+
+        return $this->buildHtmlTag('img', $tagAttributes);
+    }
+
+    /**
+     * @param array $tagAttributes
+     * @return string
+     */
+    public function buildHtmlTag($tag, array $tagAttributes)
+    {
+        $attributes = [];
+        foreach ($tagAttributes as $attribute => $value) {
+            if ( is_array($value) ) {
+                $value = implode(', ', $value);
+            }
+            $attributes[] = sprintf('%s="%s"', $attribute, $value);
+        }
+        return sprintf('<%s %s />', $tag, implode(' ', $attributes));
+    }
 }

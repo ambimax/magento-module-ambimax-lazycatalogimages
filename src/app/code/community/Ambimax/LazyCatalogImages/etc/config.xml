@@ -60,6 +60,8 @@
                 <enabled>0</enabled>
                 <use_square_images>1</use_square_images>
                 <base_url></base_url>
+                <prevent_media_upload>0</prevent_media_upload>
+                <srcset_dimensions>210</srcset_dimensions>
             </lazycatalogimages>
         </web>
     </default>

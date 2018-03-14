@@ -2,6 +2,8 @@
 registry:
   helper:
     - ambimax_lazycatalogimages/catalog_image
+    - ambimax_lazycatalogimages/data
+
   singleton:
     - eav/config
 
@@ -9,6 +11,7 @@ config:
   default/web/lazycatalogimages/enabled: 1
   default/web/lazycatalogimages/use_square_images: 0
   default/web/lazycatalogimages/base_url: https://xxx.cdn-server.com/
+  default/web/lazycatalogimages/srcset_dimensions: 840, 420, 210,840
 
 eav:
   catalog_product:
