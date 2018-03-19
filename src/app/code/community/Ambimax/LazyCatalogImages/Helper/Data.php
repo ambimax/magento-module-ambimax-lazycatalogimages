@@ -57,6 +57,7 @@ class Ambimax_LazyCatalogImages_Helper_Data extends Mage_Core_Helper_Abstract
         // handle placeholder
         if ( !$params['identifier'] ) {
             // set placeholder image
+            $params['path'] = '';
             $params['identifier'] = 'placeholder';
             $params['name'] = 'default';
             $params['extension'] = 'jpg';

@@ -52,7 +52,8 @@ class Ambimax_LazyCatalogImages_Helper_Catalog_Image extends Mage_Catalog_Helper
         $this->_setModel(new Varien_Object());
 
         $this->setProduct($product);
-        $this->setImagePath($product->getData($attributeName));
+
+        $this->setImagePath($imageFile ? $imageFile : $product->getData($attributeName));
 
         return $this;
     }
