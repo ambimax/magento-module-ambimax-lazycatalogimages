@@ -178,6 +178,7 @@ class Ambimax_LazyCatalogImages_Helper_Catalog_Image extends Mage_Catalog_Helper
     {
         $this->_width = null;
         $this->_height = null;
+        $this->_imagePath = null;
 
         return parent::_reset();
     }
