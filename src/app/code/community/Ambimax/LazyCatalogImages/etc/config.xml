@@ -2,23 +2,14 @@
 <config>
     <modules>
         <Ambimax_LazyCatalogImages>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </Ambimax_LazyCatalogImages>
     </modules>
     <global>
         <models>
             <ambimax_lazycatalogimages>
                 <class>Ambimax_LazyCatalogImages_Model</class>
-                <!--<resourceModel>ambimax_sourceprovider_resource</resourceModel>-->
             </ambimax_lazycatalogimages>
-            <!--<ambimax_sourceprovider_resource>
-                <class>Ambimax_SourceProvider_Model_Resource</class>
-                <entities>
-                    <source>
-                        <table>ambimax_sourceprovider</table>
-                    </source>
-                </entities>
-            </ambimax_sourceprovider_resource>-->
             <fastsimpleimport>
                 <rewrite>
                     <import_entity_product>Ambimax_LazyCatalogImages_Model_Import_Entity_Product</import_entity_product>
@@ -30,13 +21,6 @@
                 </rewrite>
             </catalog>
         </models>
-        <!--<resources>
-            <ambimax_sourceprovider_setup>
-                <setup>
-                    <module>Ambimax_SourceProvider</module>
-                </setup>
-            </ambimax_sourceprovider_setup>
-        </resources>-->
         <helpers>
             <ambimax_lazycatalogimages>
                 <class>Ambimax_LazyCatalogImages_Helper</class>
@@ -52,6 +36,17 @@
                 </rewrite>
             </enhancedgrid>
         </helpers>
+        <events>
+            <wyomind_elasticsearch_index_export>
+                <observers>
+                    <add_image_url_to_search_index>
+                        <class>ambimax_lazycatalogimages/observer</class>
+                        <type>singleton</type>
+                        <method>addImageUrlToElasticSearchIndex</method>
+                    </add_image_url_to_search_index>
+                </observers>
+            </wyomind_elasticsearch_index_export>
+        </events>
     </global>
 
     <default>
