@@ -33,6 +33,12 @@ Full CDN Url will therefore look like this:
 This format is used to ease invalidation of images. 
 A lambda function must be used to serve the right image using Lambda@Edge.
 
+## Supported Modules
+
+### Wyomind ElasticSearch
+
+Please disable media handling `elasticsearch/product/disable_media_handling`
+
 ## License
 
 [MIT License](http://choosealicense.com/licenses/mit/)

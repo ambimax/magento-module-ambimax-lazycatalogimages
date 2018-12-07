@@ -22,31 +22,31 @@ class Ambimax_LazyCatalogImages_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getImageUrl($filename, $customParams = [])
     {
-        if ( !$this->isEnabled() ) {
+        if (!$this->isEnabled()) {
             return Mage::getSingleton('catalog/product_media_config')
                 ->getMediaUrl($filename);
         }
 
         $params = array_merge(
             [
-                'host'       => $this->getCdnBaseUrl(),
-                'path'       => null,
+                'host' => $this->getCdnBaseUrl(),
+                'path' => null,
                 'identifier' => null,
-                'dimension'  => null,
-                'name'       => $this->getImageName(),
-                'extension'  => null,
-                'width'      => null,
-                'height'     => null,
+                'dimension' => null,
+                'name' => $this->getImageName(),
+                'extension' => null,
+                'width' => null,
+                'height' => null,
             ],
             $customParams
         );
 
-        if ( preg_match('/(.*)\/(.*)\.(jpg|jpeg|png|gif)$/i', $filename, $matches) ) {
+        if (preg_match('/(.*)\/(.*)\.(jpg|jpeg|png|gif)$/i', $filename, $matches)) {
             list($empty, $params['path'], $params['identifier'], $params['extension']) = $matches;
         }
 
         // add dimensions
-        if ( $params['width'] > 0 || $params['height'] > 0 ) {
+        if ($params['width'] > 0 || $params['height'] > 0) {
             $params['dimension'] = sprintf(
                 '%sx%s',
                 $this->_parseDimensionValue($params['width']),
@@ -55,7 +55,7 @@ class Ambimax_LazyCatalogImages_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         // handle placeholder
-        if ( !$params['identifier'] ) {
+        if (!$params['identifier']) {
             // set placeholder image
             $params['path'] = '';
             $params['identifier'] = 'placeholder';
@@ -65,11 +65,11 @@ class Ambimax_LazyCatalogImages_Helper_Data extends Mage_Core_Helper_Abstract
 
 
         $url = [
-            'host'       => rtrim($params['host'], '/'),
+            'host' => rtrim($params['host'], '/'),
             'identifier' => $params['identifier'],
-            'dimension'  => $params['dimension'],
-            'path'       => trim($params['path'], '/'),
-            'filename'   => $this->formatUrlKey(sprintf('%s.%s', $params['name'], $params['extension'])),
+            'dimension' => $params['dimension'],
+            'path' => trim($params['path'], '/'),
+            'filename' => $this->formatUrlKey(sprintf('%s.%s', $params['name'], $params['extension'])),
         ];
 
         return implode('/', array_filter($url));
@@ -88,7 +88,7 @@ class Ambimax_LazyCatalogImages_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getImageName()
     {
-        if ( $this->getProduct() ) {
+        if ($this->getProduct()) {
             return $this->getProduct()->getName();
         }
 
@@ -105,10 +105,12 @@ class Ambimax_LazyCatalogImages_Helper_Data extends Mage_Core_Helper_Abstract
 
     /**
      * @param Mage_Catalog_Model_Product $product
+     * @return Ambimax_LazyCatalogImages_Helper_Data
      */
     public function setProduct(Mage_Catalog_Model_Product $product)
     {
         $this->_product = $product;
+        return $this;
     }
 
     /**
@@ -152,13 +154,13 @@ class Ambimax_LazyCatalogImages_Helper_Data extends Mage_Core_Helper_Abstract
 
         foreach ($dimensions as $width) {
 
-            if ( (int) $width <= 10 ) {
+            if ((int)$width <= 10) {
                 throw new Exception('Invalid srcset dimensions specified');
             }
 
             $url = $catalogHelper->init($product, $attributeCode)->resize($width)->__toString();
 
-            if ( !isset($tagAttributes['src']) ) {
+            if (!isset($tagAttributes['src'])) {
                 $tagAttributes['src'] = $url;
             }
 
@@ -176,7 +178,7 @@ class Ambimax_LazyCatalogImages_Helper_Data extends Mage_Core_Helper_Abstract
     {
         $attributes = [];
         foreach ($tagAttributes as $attribute => $value) {
-            if ( is_array($value) ) {
+            if (is_array($value)) {
                 $value = implode(', ', $value);
             }
             $attributes[] = sprintf('%s="%s"', $attribute, $value);
