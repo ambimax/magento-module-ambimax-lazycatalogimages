@@ -11,13 +11,13 @@ class Ambimax_LazyCatalogImages_Helper_Rewrite_Enhancedgrid extends TBT_Enhanced
      */
     public function getImageUrl($filename)
     {
-        return Mage::helper('ambimax_lazycatalogimages')->getImageUrl(
-            $filename,
-            [
-                'width'  => $this->getImageWidth(),
-                'height' => $this->getImageHeight(),
-            ]
-        );
+        /** @var Ambimax_LazyCatalogImages_Model_Catalog_Image $responsiveImage */
+        $responsiveImage = Mage::getModel('ambimax_lazycatalogimages/catalog_image');
+
+        return $responsiveImage
+            ->setWidth($this->getImageWidth())
+            ->setHeight($this->getImageHeight())
+            ->getImageUrl($filename);
     }
 
     /**

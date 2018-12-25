@@ -21,15 +21,6 @@ class Ambimax_LazyCatalogImages_Test_Config_ModuleTest extends EcomDev_PHPUnit_T
         );
     }
 
-    public function testVersion()
-    {
-        $this->assertModuleVersion(
-            '1.0.0',
-            'Module version is not valid',
-            $this->_moduleName
-        );
-    }
-
     public function testModelsAreRegistered()
     {
         $this->assertModelAlias(

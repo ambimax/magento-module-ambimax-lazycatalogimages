@@ -4,12 +4,13 @@ class Ambimax_LazyCatalogImages_Model_Rewrite_Product_Media_Config extends Mage_
 {
     public function getMediaUrl($file)
     {
-        /** @var Ambimax_LazyCatalogImages_Helper_Data $helper */
-        $helper = Mage::helper('ambimax_lazycatalogimages');
-        if ( $helper->isEnabled() ) {
-            return $helper->getImageUrl($file);
+        if( !Mage::helper('ambimax_lazycatalogimages')->isEnabled() ) {
+            return parent::getMediaUrl($file);
         }
 
-        return parent::getMediaUrl($file);
+        /** @var Ambimax_LazyCatalogImages_Model_Catalog_Image $image */
+        $image = Mage::getModel('ambimax_lazycatalogimages/catalog_image');
+
+        return $image->getImageUrl($file);
     }
 }

@@ -9,6 +9,7 @@ registry:
 
 config:
   default/web/lazycatalogimages/enabled: 1
+  default/web/lazycatalogimages/support_image_options: 1
   default/web/lazycatalogimages/use_square_images: 0
   default/web/lazycatalogimages/base_url: https://xxx.cdn-server.com/
   default/web/lazycatalogimages/srcset_dimensions: 840, 420, 210,840

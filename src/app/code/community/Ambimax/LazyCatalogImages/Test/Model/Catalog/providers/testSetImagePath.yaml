@@ -1,0 +1,30 @@
+---
+
+-
+  path: Category/Images/Cat.png
+  expectations:
+    path: Category/Images
+    identifier: Cat
+    extension: png
+
+-
+  path: Category/Dog.jpg
+  expectations:
+    path: Category
+    identifier: Dog
+    extension: jpg
+
+-
+  path: Bird.png
+  expectations:
+    path: null
+    identifier: Bird
+    extension: png
+
+-
+  path: /Chicken.gif
+  expectations:
+    path: null
+    identifier: Chicken
+    extension: gif
+

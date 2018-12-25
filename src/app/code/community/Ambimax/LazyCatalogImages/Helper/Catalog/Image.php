@@ -88,17 +88,15 @@ class Ambimax_LazyCatalogImages_Helper_Catalog_Image extends Mage_Catalog_Helper
             return parent::__toString();
         }
 
-        if ( $this->getProduct() instanceof Mage_Catalog_Model_Product ) {
-            $this->getUrlHelper()->setProduct($this->getProduct());
-        }
+        /** @var Ambimax_LazyCatalogImages_Model_Catalog_Image $image */
+        $image = Mage::getModel('ambimax_lazycatalogimages/catalog_image');
 
-        return $this->getUrlHelper()->getImageUrl(
-            $this->getImagePath(),
-            [
-                'width'  => $this->getWidth(),
-                'height' => $this->getHeight(),
-            ]
-        );
+        return $image
+            ->setProductAttributes($this->getProduct())
+            ->setImagePath($this->getImagePath())
+            ->setWidth($this->getWidth())
+            ->setHeight($this->getHeight())
+            ->getImageUrl();
     }
 
     /**
