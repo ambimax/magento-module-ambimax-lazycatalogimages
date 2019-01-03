@@ -1,0 +1,6 @@
+autoloaders:
+  finder\FindProductsWithoutImages: %module%/src/
+
+commands:
+  customCommands:
+    - finder\FindProductsWithoutImages
