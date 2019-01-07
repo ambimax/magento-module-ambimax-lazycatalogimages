@@ -1,2 +1,3 @@
 src/app/code/community/Ambimax/LazyCatalogImages      app/code/community/Ambimax/LazyCatalogImages
 src/app/etc/modules/Ambimax_LazyCatalogImages.xml     app/etc/modules/Ambimax_LazyCatalogImages.xml
+src/lib/n98-magerun/modules/Ambimax_LazyCatalogImages lib/n98-magerun/modules/Ambimax_LazyCatalogImages
