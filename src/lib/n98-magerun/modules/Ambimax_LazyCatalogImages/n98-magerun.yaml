@@ -1,0 +1,6 @@
+autoloaders:
+  Media\FindMissingProductImagesCommand: %module%/src/
+
+commands:
+  customCommands:
+    - Media\FindMissingProductImagesCommand
