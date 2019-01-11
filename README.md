@@ -57,6 +57,42 @@ echo $responsiveImage
 	->getSrcSetHtml()
 ```
 
+#### Picture
+
+```
+$imagePath = $product->getData('small_image');
+
+/** @var Ambimax_LazyCatalogImages_Model_Catalog_Image $responsiveImage */
+$responsiveImage = Mage::getModel('ambimax_lazycatalogimages/catalog_image');
+
+$responsiveImage
+    ->addDimension('180x180')
+    ->addDimension('273x273')
+    ->addDimension('430x430')
+    ->addDimension('546x546')
+    ->addHtmlAttribute('media', '(min-width: 48em)')
+    ->addHtmlAttribute('type', 'image/webp')
+    ->addHtmlAttribute('alt', 'Description');
+    
+/** @var Ambimax_LazyCatalogImages_Model_Picture $picture */
+$picture = Mage::getModel('ambimax_lazycatalogimages/picture');
+
+$picture->addSource($responsiveImage);
+$picture->addSource($responsiveImage2);
+$picture->addSource($responsiveImage3);
+
+// Default image is first source but can also be set
+$picture->setDefaultImage($responsiveImage2);
+
+echo $picture->toHtml();
+```
+
+_Important:_ First matched image will be used by Browser!
+
+##### Webp
+
+When jpg image is used a webp source can automatically be added to picture container. See configuration.
+
 ### Image format
 
 Image urls will be replaced with the following scheme:

@@ -100,8 +100,8 @@ class Ambimax_LazyCatalogImages_Model_Catalog_Image extends Varien_Object
 
     protected function _parseArrayToUrl($urlArray)
     {
-        foreach($urlArray as &$value) {
-            if(is_array($value)) {
+        foreach ($urlArray as &$value) {
+            if (is_array($value)) {
                 $value = implode(',', $value);
             }
         }
@@ -114,7 +114,7 @@ class Ambimax_LazyCatalogImages_Model_Catalog_Image extends Varien_Object
      */
     public function getImageOptions()
     {
-        if(!Mage::getStoreConfigFlag('web/lazycatalogimages/support_image_options')) {
+        if (!Mage::getStoreConfigFlag('web/lazycatalogimages/support_image_options')) {
             return $this->getDefaultDimensions();
         }
 
@@ -123,8 +123,8 @@ class Ambimax_LazyCatalogImages_Model_Catalog_Image extends Varien_Object
             $this->getTransparency() ? 't' : null,
         ];
 
-        foreach($options as $k => $value) {
-            if(is_null($value) || empty($value)) {
+        foreach ($options as $k => $value) {
+            if (is_null($value) || empty($value)) {
                 unset($options[$k]);
             }
         }
@@ -389,7 +389,58 @@ class Ambimax_LazyCatalogImages_Model_Catalog_Image extends Varien_Object
             }
             $attributes[] = sprintf('%s="%s"', $attribute, $value);
         }
-        return sprintf('<%s %s />', 'img', implode(' ', $attributes));
+        return sprintf('<img %s />', implode(' ', $attributes));
+    }
+
+    /**
+     * @param array $htmlTags
+     * @return string
+     */
+    public function getPictureSourceHtml(array $htmlTags = [])
+    {
+        $htmlTags = array_merge([
+            'srcset' => $this->getSrcSet(),
+            'sizes' => $this->getSizes(),
+        ], $this->getHtmlAttributes(), $htmlTags);
+
+        $allowedHtmlAttributes = ['srcset', 'type', 'media'];
+
+        $attributes = [];
+        foreach ($htmlTags as $attribute => $value) {
+            if (empty($value) || !in_array($attribute, $allowedHtmlAttributes)) {
+                continue;
+            }
+            if (is_array($value)) {
+                $value = implode(', ', $value);
+            }
+            $attributes[] = sprintf('%s="%s"', $attribute, $value);
+        }
+        return sprintf('<source %s />', implode(' ', $attributes));
+    }
+
+    /**
+     * @param array $htmlTags
+     * @return string
+     */
+    public function getImageHtml(array $htmlTags = [])
+    {
+        $htmlTags = array_merge([
+            'src' => $this->getImageUrl(),
+            'srcset' => $this->getSrcSet(),
+        ], $this->getHtmlAttributes(), $htmlTags);
+
+        $attributes = [];
+        foreach ($htmlTags as $attribute => $value) {
+            if (empty($value)) {
+                continue;
+            }
+            if (is_array($value)) {
+                $value = implode(', ', $value);
+            }
+            $attributes[] = sprintf('%s="%s"', $attribute, $value);
+        }
+
+        return sprintf('<img %s />', implode(' ', $attributes));
     }
 
     /**
@@ -460,7 +511,7 @@ class Ambimax_LazyCatalogImages_Model_Catalog_Image extends Varien_Object
      */
     public function setTransparency($flag = true)
     {
-        $this->_transparency = (bool) $flag;
+        $this->_transparency = (bool)$flag;
         return $this;
     }
 

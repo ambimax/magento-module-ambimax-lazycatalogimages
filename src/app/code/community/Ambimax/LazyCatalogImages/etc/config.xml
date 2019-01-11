@@ -54,6 +54,7 @@
             <lazycatalogimages>
                 <enabled>0</enabled>
                 <support_image_options>0</support_image_options>
+                <generate_webp>0</generate_webp>
                 <use_square_images>1</use_square_images>
                 <base_url></base_url>
                 <prevent_media_upload>0</prevent_media_upload>
