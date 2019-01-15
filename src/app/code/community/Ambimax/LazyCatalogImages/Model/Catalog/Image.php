@@ -376,11 +376,15 @@ class Ambimax_LazyCatalogImages_Model_Catalog_Image extends Varien_Object
      */
     public function getSrcSetHtml(array $htmlTags = [])
     {
-        $htmlTags = array_merge([
-            'src' => $this->getImageUrl(),
-            'srcset' => $this->getSrcSet(),
-            'sizes' => $this->getSizes(),
-        ], $this->getHtmlAttributes(), $htmlTags);
+        $htmlTags = array_merge(
+            [
+                'src' => $this->getImageUrl(),
+                'srcset' => $this->getSrcSet(),
+                'sizes' => $this->getSizes(),
+            ],
+            $this->getHtmlAttributes(),
+            $htmlTags
+        );
 
         $attributes = [];
         foreach ($htmlTags as $attribute => $value) {
@@ -398,10 +402,14 @@ class Ambimax_LazyCatalogImages_Model_Catalog_Image extends Varien_Object
      */
     public function getPictureSourceHtml(array $htmlTags = [])
     {
-        $htmlTags = array_merge([
-            'srcset' => $this->getSrcSet(),
-            'sizes' => $this->getSizes(),
-        ], $this->getHtmlAttributes(), $htmlTags);
+        $htmlTags = array_merge(
+            [
+                'srcset' => $this->getSrcSet(),
+                'sizes' => $this->getSizes(),
+            ],
+            $this->getHtmlAttributes(),
+            $htmlTags
+        );
 
         $allowedHtmlAttributes = ['srcset', 'type', 'media'];
 
@@ -424,10 +432,14 @@ class Ambimax_LazyCatalogImages_Model_Catalog_Image extends Varien_Object
      */
     public function getImageHtml(array $htmlTags = [])
     {
-        $htmlTags = array_merge([
-            'src' => $this->getImageUrl(),
-            'srcset' => $this->getSrcSet(),
-        ], $this->getHtmlAttributes(), $htmlTags);
+        $htmlTags = array_merge(
+            [
+                'src' => $this->getImageUrl(),
+                'srcset' => $this->getSrcSet(),
+            ],
+            $this->getHtmlAttributes(),
+            $htmlTags
+         );
 
         $attributes = [];
         foreach ($htmlTags as $attribute => $value) {

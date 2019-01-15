@@ -318,10 +318,12 @@ class Ambimax_LazyCatalogImages_Test_Model_Catalog_ImageTest extends EcomDev_PHP
     {
         $product = Mage::getModel('catalog/product');
 
-        $product->addData([
-            'name' => 'A unique product name',
-            'small_image' => 'Dog/snacks.jpg',
-        ]);
+        $product->addData(
+            [
+                'name' => 'A unique product name',
+                'small_image' => 'Dog/snacks.jpg',
+            ]
+        );
 
         $this->_image->setProductAttributes($product);
 
@@ -344,10 +346,12 @@ class Ambimax_LazyCatalogImages_Test_Model_Catalog_ImageTest extends EcomDev_PHP
     public function testSetCategoryAttributes()
     {
         $category = Mage::getModel('catalog/category');
-        $category->addData([
-            'name' => 'A unique category name',
-            'thumbnail' => 'Bilder/Katze.png'
-        ]);
+        $category->addData(
+            [
+                'name' => 'A unique category name',
+                'thumbnail' => 'Bilder/Katze.png'
+            ]
+        );
 
         $this->_image->setCategoryAttributes($category);
 
