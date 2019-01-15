@@ -439,7 +439,7 @@ class Ambimax_LazyCatalogImages_Model_Catalog_Image extends Varien_Object
             ],
             $this->getHtmlAttributes(),
             $htmlTags
-         );
+        );
 
         $attributes = [];
         foreach ($htmlTags as $attribute => $value) {

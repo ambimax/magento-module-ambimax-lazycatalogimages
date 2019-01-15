@@ -4,7 +4,7 @@ class Ambimax_LazyCatalogImages_Model_Rewrite_Product_Media_Config extends Mage_
 {
     public function getMediaUrl($file)
     {
-        if( !Mage::helper('ambimax_lazycatalogimages')->isEnabled() ) {
+        if (!Mage::helper('ambimax_lazycatalogimages')->isEnabled()) {
             return parent::getMediaUrl($file);
         }
 
