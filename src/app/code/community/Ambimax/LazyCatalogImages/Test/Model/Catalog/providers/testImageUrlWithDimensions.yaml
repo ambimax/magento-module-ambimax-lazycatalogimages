@@ -1,0 +1,25 @@
+---
+
+-
+  path: path/to/image.jpg
+  width: 100
+  height: null
+  expectation: https://xxx.cdn-server.com/image/100x/path/to/unknown.jpg
+
+-
+  path: path/to/image.jpg
+  width: null
+  height: null
+  expectation: https://xxx.cdn-server.com/image/path/to/unknown.jpg
+
+-
+  path: path/to/image.jpg
+  width: 100
+  height: 200
+  expectation: https://xxx.cdn-server.com/image/100x200/path/to/unknown.jpg
+
+-
+  path: path/to/image.jpg
+  width: null
+  height: 200
+  expectation: https://xxx.cdn-server.com/image/x200/path/to/unknown.jpg

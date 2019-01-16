@@ -1,0 +1,23 @@
+---
+
+-
+  width: null
+  height: null
+  expectation: null
+
+-
+  width: 100
+  height: null
+  expectation: 100x
+
+-
+  width: null
+  height: 100
+  expectation: x100
+
+-
+  width: 200
+  height: 100
+  expectation: 200x100
+
+

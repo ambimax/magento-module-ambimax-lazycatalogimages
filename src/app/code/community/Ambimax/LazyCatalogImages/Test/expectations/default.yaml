@@ -26,3 +26,57 @@ srcset:
     - '840'
   html: '<img src="https://xxx.cdn-server.com/Strong-Red-XS/210x/TShirts/T-Shirt-Strong-Red-XS.jpg" srcset="https://xxx.cdn-server.com/Strong-Red-XS/210x/TShirts/T-Shirt-Strong-Red-XS.jpg 210w, https://xxx.cdn-server.com/Strong-Red-XS/420x/TShirts/T-Shirt-Strong-Red-XS.jpg 420w, https://xxx.cdn-server.com/Strong-Red-XS/840x/TShirts/T-Shirt-Strong-Red-XS.jpg 840w" />'
   html_with_tags: '<img alt="Alternative Text" src="https://xxx.cdn-server.com/Strong-Red-XS/210x/TShirts/T-Shirt-Strong-Red-XS.jpg" srcset="https://xxx.cdn-server.com/Strong-Red-XS/210x/TShirts/T-Shirt-Strong-Red-XS.jpg 210w, https://xxx.cdn-server.com/Strong-Red-XS/420x/TShirts/T-Shirt-Strong-Red-XS.jpg 420w, https://xxx.cdn-server.com/Strong-Red-XS/840x/TShirts/T-Shirt-Strong-Red-XS.jpg 840w" />'
+
+catalog_image:
+  set_dimensions:
+    200x200:
+      width: 200
+      height: 200
+    250x250:
+      width: 250
+      height: 250
+    300x400:
+      width: 300
+      height: 400
+  add_dimensions:
+    100x100:
+      width: 100
+      height: 100
+    200x200:
+      width: 200
+      height: 200
+    250x:
+      width: 250
+      height: null
+    x280:
+      width: null
+      height: 280
+    x300:
+      width: null
+      height: 300
+    320x:
+      width: 320
+      height: null
+    400x400:
+      width: 400
+      height: 400
+    420x:
+      width: 420
+      height: null
+    x440:
+      width: null
+      height: 440
+  src_set:
+    - https://xxx.cdn-server.com/Katze/200x200/Kategorien/Bilder/test.png 200w
+    - https://xxx.cdn-server.com/Katze/400x400/Kategorien/Bilder/test.png 400w
+  src_set_html: >
+    <img
+    src="https://xxx.cdn-server.com/Katze/120x120/Kategorien/Bilder/test.png"
+    srcset="https://xxx.cdn-server.com/Katze/200x200/Kategorien/Bilder/test.png 200w, https://xxx.cdn-server.com/Katze/400x400/Kategorien/Bilder/test.png 400w"
+    sizes="(min-width: 650px) 50vw, 100vw"
+    alt="Katzen & mehr"
+    class="srcset"
+    />
+  add_size:
+    - '(min-width: 650px) 50vw'
+    - 100vw

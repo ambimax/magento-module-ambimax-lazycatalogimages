@@ -13,10 +13,7 @@ class Ambimax_LazyCatalogImages_Model_Observer
      */
     public function addImageUrlToElasticSearchIndex(Varien_Event_Observer $observer)
     {
-        /** @var Ambimax_LazyCatalogImages_Helper_Data $lazyCatalogImages */
-        $lazyCatalogImages = Mage::helper('ambimax_lazycatalogimages');
-
-        if (!$lazyCatalogImages->isEnabled()) {
+        if (!Mage::helper('ambimax_lazycatalogimages')->isEnabled()) {
             return;
         }
 
@@ -28,11 +25,14 @@ class Ambimax_LazyCatalogImages_Model_Observer
 
         foreach ($products as $productId => &$product) {
 
+            /** @var Ambimax_LazyCatalogImages_Model_Catalog_Image $image */
+            $image = Mage::getModel('ambimax_lazycatalogimages/catalog_image');
+
             // set product for name
-            $lazyCatalogImages->setProduct(Mage::getModel('catalog/product')->setData($product));
+            $image->setProductAttributes(Mage::getModel('catalog/product')->setData($product));
 
             // reset image url
-            $product['image'] = $lazyCatalogImages->getImageUrl($product['image']);
+            $product['image'] = $image->getImageUrl($product['image']);
         }
 
         $observerData->setProducts($products);
