@@ -71,7 +71,7 @@ class FindMissingProductImagesCommand extends AbstractMagentoCommand
             return;
         }
 
-        $imageUrl = Mage::helper('ambimax_lazycatalogimages')->getImageUrl($item->getImage());
+        $imageUrl = Mage::helper('ambimax_lazycatalogimages/rewrite_enhancedgrid')->getImageUrl($item->getImage());
 
         if ( $this->isPlaceholderImage($imageUrl) ) {
             $output->writeln($item->getSku());
