@@ -11,7 +11,7 @@ use Ambimax_Iterator_Model_Event_Observer;
 
 class FindMissingProductImagesCommand extends AbstractMagentoCommand
 {
-    protected $_placeholderEtag = 'ETag: a38802daa986bee515f36d5e3e138c25';
+    protected $_placeholderEtag = 'ETag: 86fb721ef6b52464cdc43a8a76264c8b';
 
     protected function configure()
     {
@@ -78,6 +78,4 @@ class FindMissingProductImagesCommand extends AbstractMagentoCommand
             return;
         }
     }
-
-
 }
