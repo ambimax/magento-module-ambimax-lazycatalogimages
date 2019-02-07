@@ -185,7 +185,7 @@ class Ambimax_LazyCatalogImages_Model_Catalog_Image extends Varien_Object
      */
     public function getCdnBaseUrl()
     {
-        return rtrim(Mage::getStoreConfig('web/lazycatalogimages/base_url'), '/');
+        return Mage::helper('ambimax_lazycatalogimages')->getCdnBaseUrl();
     }
 
     /**
