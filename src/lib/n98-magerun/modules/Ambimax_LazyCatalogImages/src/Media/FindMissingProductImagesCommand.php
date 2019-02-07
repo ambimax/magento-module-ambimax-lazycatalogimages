@@ -11,13 +11,13 @@ use Ambimax_Iterator_Model_Event_Observer;
 
 class FindMissingProductImagesCommand extends AbstractMagentoCommand
 {
-    protected $_placeholderEtag = 'ETag: 86fb721ef6b52464cdc43a8a76264c8b';
+    protected $_placeholderEtag = 'ETag: a38802daa986bee515f36d5e3e138c25';
 
     protected function configure()
     {
         $this
             ->setName('media:find-missing-product-images')
-            ->setDescription('Returns product skus with missing product images');
+            ->setDescription('Returns evaluation from product images | Return csv format');
     }
 
     /**
@@ -66,16 +66,20 @@ class FindMissingProductImagesCommand extends AbstractMagentoCommand
         /** @var \Symfony\Component\Console\Output\OutputInterface $output */
         $output = $observer->getOutput();
 
+        $productSku = $item->getSku();
+
         if ( empty($item->getImage()) ) {
-            $output->writeln($item->getSku());
+            $output->writeln(sprintf('%s,missing image path/ product isn\'t avaiable', $productSku));
             return;
         }
 
         $imageUrl = Mage::helper('ambimax_lazycatalogimages/rewrite_enhancedgrid')->getImageUrl($item->getImage());
 
         if ( $this->isPlaceholderImage($imageUrl) ) {
-            $output->writeln($item->getSku());
+            $output->writeln(sprintf('%s,has placeholder image', $productSku));
             return;
         }
+
+        $output->writeln(sprintf('%s,has own image', $productSku));
     }
 }
