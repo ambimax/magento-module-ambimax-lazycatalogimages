@@ -1,6 +1,6 @@
 ---
 config:
-  base_url: https://xxx.cdn-server.com/
+  base_url: https://xxx.cdn-server.com
 
 image_urls:
   tshirt-strong-red-xs-600-600: https://xxx.cdn-server.com/Strong-Red-XS/600x600/TShirts/T-Shirt-Strong-Red-XS.jpg
