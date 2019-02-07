@@ -66,22 +66,20 @@ class FindMissingProductImagesCommand extends AbstractMagentoCommand
         /** @var \Symfony\Component\Console\Output\OutputInterface $output */
         $output = $observer->getOutput();
 
-        $productStatus = $item->getSku();
+        $productSku = $item->getSku();
 
         if ( empty($item->getImage()) ) {
-            $output->writeln($productStatus . ',' . 'missing image path/ product isn\'t avaiable' );
+            $output->writeln(sprintf('%s,missing image path/ product isn\'t avaiable', $productSku));
             return;
         }
 
         $imageUrl = Mage::helper('ambimax_lazycatalogimages/rewrite_enhancedgrid')->getImageUrl($item->getImage());
 
         if ( $this->isPlaceholderImage($imageUrl) ) {
-            $output->writeln($productStatus . ',has placeholder image');
+            $output->writeln(sprintf('%s,has placeholder image', $productSku));
             return;
         }
 
-        $output->writeln($productStatus . ',has own image');
+        $output->writeln(sprintf('%s,has own image', $productSku));
     }
-
-
 }
