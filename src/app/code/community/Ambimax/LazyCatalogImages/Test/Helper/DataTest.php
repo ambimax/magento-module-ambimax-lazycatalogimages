@@ -11,10 +11,13 @@ class Ambimax_LazyCatalogImages_Test_Helper_DataTest extends EcomDev_PHPUnit_Tes
      * @var Ambimax_LazyCatalogImages_Helper_Data
      */
     public $urlHelper;
+    /** @var Ambimax_LazyCatalogImages_Model_Catalog_Image */
+    protected $_image;
 
     public function setUp()
     {
         $this->urlHelper = Mage::helper('ambimax_lazycatalogimages');
+        $this->_image = Mage::getModel('ambimax_lazycatalogimages/catalog_image');
     }
 
     public function testImageHelperInstance()
@@ -34,34 +37,6 @@ class Ambimax_LazyCatalogImages_Test_Helper_DataTest extends EcomDev_PHPUnit_Tes
         $this->assertSame(
             $this->expected('config')->getBaseUrl(),
             $this->urlHelper->getCdnBaseUrl()
-        );
-    }
-
-    /**
-     * @loadFixture ~Ambimax_LazyCatalogImages/default
-     * @loadExpectation ~Ambimax_LazyCatalogImages/default
-     */
-    public function testSrcSet()
-    {
-        $product = Mage::getModel('catalog/product')->loadByAttribute('sku', 'tshirt-strong-red-xs');
-
-        $this->assertSame(
-            $this->expected('srcset')->getHtml(),
-            $this->urlHelper->getSrcSet($product, $this->_dimensions)
-        );
-    }
-
-    /**
-     * @loadFixture ~Ambimax_LazyCatalogImages/default
-     * @loadExpectation ~Ambimax_LazyCatalogImages/default
-     */
-    public function testSrcSetWithTags()
-    {
-        $product = Mage::getModel('catalog/product')->loadByAttribute('sku', 'tshirt-strong-red-xs');
-
-        $this->assertSame(
-            $this->expected('srcset')->getHtmlWithTags(),
-            $this->urlHelper->getSrcSet($product, $this->_dimensions, ['alt' => 'Alternative Text'], 'small_image')
         );
     }
 }
