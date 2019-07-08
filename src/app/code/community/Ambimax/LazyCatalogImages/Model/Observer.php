@@ -32,7 +32,9 @@ class Ambimax_LazyCatalogImages_Model_Observer
             $image->setProductAttributes(Mage::getModel('catalog/product')->setData($product));
 
             // reset image url
-            $product['image'] = $image->setWidth(100)->setHeight(100)->getImageUrl($product['image']);
+            if (key_exists('image', $product)) {
+                $product['image'] = $image->setWidth(100)->setHeight(100)->getImageUrl($product['image']);
+            }
         }
 
         $observerData->setProducts($products);
